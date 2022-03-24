@@ -83,3 +83,4 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 2. relation many to many for category
 3. relation one to many for article
 4. use middleware for admin routes. 
+5. create a fake for articles.
