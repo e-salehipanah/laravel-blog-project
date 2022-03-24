@@ -79,8 +79,8 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 
 # my goals 
-1. admin user can add, delete and edit a article.
-2. relation many to many for category
-3. relation one to many for article
-4. use middleware for admin routes. 
-5. create a fake for articles.
+- [ ] admin user can add, delete and edit a article.
+- [ ] relation many to many for category.
+- [x] relation one to many for article and user.
+- [x] use middleware for admin routes. 
+- [ ] create a fake for articles.
