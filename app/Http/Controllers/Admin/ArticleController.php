@@ -1,12 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Article;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\ArticleRequest;
 
 class ArticleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index']);;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -24,7 +30,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.admin.article.create');
     }
 
     /**
@@ -33,9 +39,17 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ArticleRequest $request)
     {
-        //
+        $validate_data = $request->validated();
+
+        auth()->user()->articles()->create([
+            'title' => $validate_data['title'],
+            'slug' => $validate_data['title'],
+            'body' => $validate_data['body'],
+        ]);
+
+        return redirect('/admin/articles/create');
     }
 
     /**

@@ -15,6 +15,6 @@ Route::get('/', 'pages\HomeController')->name('home');
 
 Auth::routes();
 
-Route::prefix('admin')->group(function (){
+Route::prefix('admin')->namespace('Admin')->group(function (){
     Route::resource('articles','ArticleController');
 });
